@@ -19,7 +19,7 @@ def S2masking(image):
         cirrus = scl.neq(10); # 10 это перистые облака или цирусы
         return  image.updateMask(cirrus).updateMask(cirrus_medium).updateMask(cirrus_high)
 
-def downloader(image, boundary, description = 'sentinel_2',google_folder = 'export',  scale = 10):
+def downloader(image, boundary, description = 'sentinel_2',google_folder = 'raster_data',  scale = 10):
     geemap.ee_export_image_to_drive(
         image,
         description = description,
