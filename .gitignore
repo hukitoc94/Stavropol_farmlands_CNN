@@ -1,0 +1,14 @@
+
+/data/input_raster/example_raster.tif
+/Литература/
+/row_gis_data/
+/data/old_data/
+/data/row_rasters/
+/data/Stavropol_dataSet
+/data/input_raster/example_raster.tif
+model/model_state.pt
+*.gpkg
+*.qgz
+*.pdf
+*.pt
+model/model_state.pt
