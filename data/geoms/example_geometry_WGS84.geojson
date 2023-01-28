@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "example_geometry_WGS84",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { }, "geometry": { "type": "Polygon", "coordinates": [ [ [ 43.764620262259719, 44.371891072276291 ], [ 43.759458261036471, 44.615854750800807 ], [ 44.383908003359132, 44.620930796552379 ], [ 44.386472215257797, 44.376924351621788 ], [ 43.764620262259719, 44.371891072276291 ] ] ] } }
+]
+}
