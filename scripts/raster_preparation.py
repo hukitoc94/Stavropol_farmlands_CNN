@@ -83,7 +83,11 @@ def clip_raster(raster_dir:str ,geometry,  fid,out_json_dir , out_pathces_dir, c
     if crs == None:
         crs = geometry.crs.to_epsg()
     with rasterio.open(raster_dir) as raster_data:
-        out_img, out_transform = mask(dataset=raster_data,nodata = 0 ,shapes=geometry,crop=True)
+        #try:
+        out_img, out_transform = mask(dataset=raster_data,nodata = 0 ,shapes=geometry,crop=True) #поменял crop на invert посмотрим че получится 
+        #except:
+        #   out_img, out_transform = mask(dataset=raster_data,nodata = 0 ,shapes=geometry,invert=True) #ужасный колхоз чтобы поймать ошибку
+
         out_meta = raster_data.meta.copy()
 
         meta_dict = {"driver": 'GTiff',#"GTiff",JPEG
@@ -194,7 +198,11 @@ def clip_to_patches(raster_dir, geometry):
 
         fid = geometry.iloc[i].fid
         geom = geometry.iloc[i].geometry
+        #try:
         clip_raster(raster_dir, [geom], fid, json_dir,pathes_dir, crs)
+        #except:
+            #print('проскачили итерацию цикла')  # наколхоженный костыль потому что у нас геометрии вылетают за пределы растра 
+            #continue 
 
 
 def build_mask_patches(meta_json_dir, model):   
